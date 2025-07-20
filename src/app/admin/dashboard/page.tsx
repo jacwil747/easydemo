@@ -1,4 +1,3 @@
-
 "use client"
 
 import Link from "next/link";
@@ -15,20 +14,16 @@ import {
   Bell,
   Image as ImageIcon,
   FileText,
-  Sparkles,
   GraduationCap,
-  MessageSquare
 } from "lucide-react"
 
 const navItems = [
   { href: '/admin/children', icon: Users, label: 'Children', description: 'Manage student profiles.' },
   { href: '/admin/parents', icon: Users, label: 'Parents', description: 'Manage parent accounts.' },
   { href: '/admin/teachers', icon: GraduationCap, label: 'Teachers', description: 'Manage teacher profiles.' },
-  { href: '/admin/communications', icon: MessageSquare, label: 'Communications', description: 'Send messages to parents.' },
   { href: '/admin/events', icon: Bell, label: 'Events', description: 'Create and manage events.' },
   { href: '/admin/gallery', icon: ImageIcon, label: 'Gallery', description: 'Manage the photo gallery.' },
   { href: '/admin/documents', icon: FileText, label: 'Documents', description: 'Upload and manage files.' },
-  { href: '/admin/ai-assistant', icon: Sparkles, label: 'AI Assistant', description: 'Generate creative content.' },
 ];
 
 export default function Dashboard() {
@@ -90,7 +85,7 @@ export default function Dashboard() {
         <CardContent>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {navItems.map((item) => (
-              <Link href={item.href} key={item.label}>
+              <Link href={item.href} key={item.label} passHref>
                 <div className="p-4 rounded-lg border bg-card text-card-foreground shadow-sm hover:bg-accent hover:text-accent-foreground transition-colors h-full flex flex-col">
                   <item.icon className="h-8 w-8 text-primary mb-2" />
                   <h3 className="text-lg font-semibold">{item.label}</h3>
